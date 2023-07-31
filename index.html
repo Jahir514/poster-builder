@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+  <title>Poster Builder</title>
+</head>
+
+<body class="bg-gray-200">
+  <div class="grid grid-cols-2 gap-4 m-4 min-h-[500px]">
+    <!-- component start -->
+    <div class="border border-gray-400 rounded-lg border-dotted">
+      <!-- component heading -->
+      <div class="bg-white p-2 w-[95%] rounded-lg top-0 mx-auto text-center mt-[-12px] mb-8 shadow-md">
+        <div class="flex items-center justify-center">
+          <i class="fa-solid fa-box mr-2"></i>
+          <h1 class="font-bold">Components</h1>
+        </div>
+      </div>
+
+      <!-- component Items start -->
+      <div class="text-center">
+        <p class="font-bold">Items</p>
+        <div class="grid md:grid-cols-3 xs:grid-cols-1 gap-3 mx-4 my-2">
+          <div
+            class="bg-yellow-500 p-2 rounded-lg font-semibold shadow-md cursor-pointer hover:bg-yellow-700 hover:text-white transition duration-150 ease-in-out"
+            id="heading">
+            <h3>Heading</h3>
+          </div>
+          <div
+            class="bg-emerald-200 p-2 rounded-lg font-semibold text-[green] shadow-md cursor-pointer hover:bg-emerald-500 hover:text-white transition duration-150 ease-in-out"
+            id="image">
+            <h3>Image</h3>
+          </div>
+          <div
+            class="bg-blue-200 p-2 rounded-lg font-semibold text-cyan-700 shadow-md cursor-pointer hover:bg-blue-400 hover:text-white transition duration-150 ease-in-out"
+            id="description">
+            <h3>Description</h3>
+          </div>
+        </div>
+      </div>
+      <!-- component Items end -->
+
+      <!-- component content start -->
+      <div class="m-4">
+        <form action="">
+          <!-- Heading content start -->
+          <div class="hidden relative border border-gray-400 rounded-lg border-solid min-h-auto px-1 pt-10 pb-5 mb-4"
+            id="headingItem">
+            <!-- content heading -->
+            <p class="absolute bg-gray-400 inline-block px-2 text-xs font-semibold rounded-full left-2 -top-2">
+              Heading
+            </p>
+            <p class="absolute bg-white w-7 h-7 text-md font-semibold rounded-full -right-2 -top-2 flex items-center justify-center pb-1 cursor-pointer text-red-500"
+              id="removeHeading">
+              x
+            </p>
+            <div class="mx-4 flex flex-col items-center justify-center h-full">
+              <input type="text" class="border border-gray-300 w-full bg-white py-1 px-2 rounded-md mb-2 text-sm"
+                placeholder="Dashboard" id="headingInput" />
+              <!-- Buttons start -->
+              <div class="xl:flex xs:flex-col xs:items-start items-center justify-between xl:w-full">
+                <div class="flex shrink bg-white shadow-md rounded-md sm:mb-2 lg:mb-0">
+                  <button type="button" onclick="leftAlign()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center group-hover:text-blue-600">
+                      <i class="fa-solid fa-align-left mr-2"></i>
+                      <p class="font-bold">Left</p>
+                    </div>
+                  </button>
+                  <button type="button" onclick="middleAlign()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center group-hover:text-blue-600">
+                      <i class="fa-solid fa-align-center mr-2"></i>
+                      <p class="font-bold">Center</p>
+                    </div>
+                  </button>
+                  <button type="button" onclick="rightAlign()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center group-hover:text-blue-600">
+                      <i class="fa-solid fa-align-right mr-2"></i>
+                      <p class="font-bold">Right</p>
+                    </div>
+                  </button>
+                </div>
+
+                <div class="flex shrink bg-white shadow-md rounded-md">
+                  <button type="button" onclick="addBlueColor()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center group-hover:text-blue-600">
+                      <i class="fa-solid fa-circle mr-2 text-blue-500"></i>
+                      <p class="font-bold">Blue</p>
+                    </div>
+                  </button>
+                  <button type="button" onclick="addBlackColor()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center">
+                      <i class="fa-solid fa-circle mr-2 text-black-500 mr-2"></i>
+                      <p class="font-bold group-hover:text-blue-600">Black</p>
+                    </div>
+                  </button>
+                  <button type="button" onclick="addGreenColor()"
+                    class="inline-block border px-3 py-1 text-xs font-medium uppercase leading-normal transition duration-150 ease-in-out hover:bg-opacity-10 group focus:border focus:border-2 focus:border-blue-600">
+                    <div class="flex items-center justify-center group-hover:text-blue-600">
+                      <i class="fa-solid fa-circle mr-2 text-green-500 mr-2"></i>
+                      <p class="font-bold">Green</p>
+                    </div>
+                  </button>
+                </div>
+              </div>
+              <!-- Buttons end -->
+            </div>
+          </div>
+          <!-- Heading content end -->
+
+          <!-- Image Content start -->
+          <div class="hidden relative border border-gray-400 rounded-lg border-solid min-h-auto px-1 pt-10 pb-5 mb-4"
+            id="imageItem">
+            <!-- content heading -->
+            <p class="absolute bg-gray-400 inline-block px-2 text-xs font-semibold rounded-full left-2 -top-2">
+              Poster Image
+            </p>
+            <p class="absolute bg-white w-7 h-7 text-md font-semibold rounded-full -right-2 -top-2 flex items-center justify-center pb-1 cursor-pointer text-red-500"
+              id="removeImage">
+              x
+            </p>
+            <!-- Image Uplaod -->
+
+            <div class="flex items-center justify-center w-full px-4">
+              <label for="image-file"
+                class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                  <svg class="w-8 h-8 mb-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 20 16">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                  </svg>
+                  <p class="mb-2 text-sm text-gray-500">
+                    <span class="font-semibold">Click to upload</span> or drag
+                    and drop
+                  </p>
+                  <p class="text-xs text-gray-500">
+                    SVG, PNG, JPG or GIF (MAX. 800x400px)
+                  </p>
+                </div>
+                <input id="image-file" type="file" class="hidden" />
+              </label>
+            </div>
+          </div>
+          <!-- Image Content end -->
+          <!-- Description Content start -->
+          <div class="hidden relative border border-gray-400 rounded-lg border-solid min-h-auto px-1 pt-10 pb-5"
+            id="descriptionItem">
+            <!-- content heading -->
+            <p class="absolute bg-gray-400 inline-block px-2 text-xs font-semibold rounded-full left-2 -top-2">
+              Description
+            </p>
+            <p class="absolute bg-white w-7 h-7 text-md font-semibold rounded-full -right-2 -top-2 flex items-center justify-center pb-1 cursor-pointer text-red-500"
+              id="removeDescription">
+              x
+            </p>
+            <div class="mx-4 flex flex-col items-center justify-center h-full">
+              <textarea rows="4" cols="50" id="handleDescription"
+                class="border border-gray-300 w-full bg-white py-1 px-2 rounded-md mb-2 text-xs"
+                placeholder="Write your thoughts here"></textarea>
+              <!--  -->
+            </div>
+          </div>
+          <!-- Description Content end -->
+        </form>
+      </div>
+      <!-- component content end -->
+    </div>
+    <!-- component end -->
+
+    <!-- preview start -->
+
+    <div class="flex flex-col justify-between border border-gray-400 rounded-lg border-dotted">
+      <!-- component heading -->
+      <div class="bg-white p-2 w-[95%] rounded-lg top-0 mx-auto text-center mt-[-12px] mb-8 shadow-md">
+        <div class="flex items-center justify-center">
+          <i class="fa-solid fa-file-arrow-down mr-2"></i>
+          <h1 class="font-bold">Preview</h1>
+        </div>
+      </div>
+      <div class="flex-1" id="convertToImage">
+        <!-- Preview heading start -->
+        <div class="m-4 mb-8">
+          <h1 id="previewHeading" class="text-5xl font-semibold capitalize"></h1>
+        </div>
+        <!-- Preview heading end -->
+        <!-- Preview image start -->
+        <div class="m-4 " id="imageContent">
+          <!-- <img src="#" alt="image"  class="hidden"> -->
+        </div>
+        <!-- Preview image end -->
+        <!-- Preview heading start -->
+        <div class="m-4 ">
+          <p id="previewDescription" class="text-md"></p>
+        </div>
+        <!-- Preview heading end -->
+      </div>
+      <!-- Download button -->
+      <div class="m-4">
+        <button type="button" onclick="downloadPoster()"
+          class="px-4 py-2 bg-white text-sm rounded-lg hover:text-blue-100 hover:bg-blue-500 transition duration-150 ease-in-out">Download</button>
+      </div>
+    </div>
+
+    <!-- preview end -->
+  </div>
+  <script src="./index.js"></script>
+</body>
+
+</html>
